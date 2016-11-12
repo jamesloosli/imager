@@ -21,6 +21,10 @@ dd if=/dev/urandom of=/dev/null bs=1024 count=10 2>/dev/null
 rm -f /etc/ssh/ssh_host_*
 dpkg-reconfigure openssh-server
 
+# System updates!
+apt-get update
+apt-get upgrade
+
 # Set up salt, and start the salt service
 mkdir -p /etc/salt/minion.d
 apt-get install -y salt-minion
@@ -34,7 +38,6 @@ service salt-minion start
 # Grow the disk
 # This is specific to the 32GB cards.
 # Only run if $3 is set to "grow" 
-if [[ $3 
 if [[ $3 == "grow" ]] ; then
   echo "GROW"
   #parted -s /dev/mmcblk0 resizepart 2 32GB 
