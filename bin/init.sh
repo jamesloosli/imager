@@ -23,7 +23,7 @@ dpkg-reconfigure openssh-server
 
 # System updates!
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 
 # Set up salt, and start the salt service
 mkdir -p /etc/salt/minion.d
